@@ -2,6 +2,41 @@
 // Signature: Repeating Indian textile diamond SVG border pattern at header/footer.
 // Avoids the cream+terracotta AI default; uses a jewel-toned handcraft palette instead.
 
+import type { ReactNode } from "react";
+
+type SectionBandProps = {
+  label: string;
+  badge?: string;
+};
+
+type ScrunchieItem = {
+  name: string;
+  color: string;
+};
+
+type ScrunchieRowProps = ScrunchieItem & {
+  isLast: boolean;
+  idx: number;
+};
+
+type ItemRowProps = {
+  name: string;
+  detail?: string;
+  price?: string;
+  note?: string;
+  isLast: boolean;
+  idx: number;
+};
+
+type ProductTableProps = {
+  children: ReactNode;
+};
+
+type CategoryHeadingProps = {
+  icon: string;
+  title: string;
+};
+
 const C = {
   espresso: "#1C0F05",
   sienna: "#4B2714",
@@ -12,7 +47,7 @@ const C = {
   lightUmber: "#9B6B45",
 };
 
-const COLOR_DOTS = {
+const COLOR_DOTS: Record<string, string> = {
   "Chocolate Brown": "#6B3A2A",
   "Baby Pink": "#F4A7B0",
   "Teal Blue": "#2A9D8F",
@@ -51,7 +86,7 @@ const TextilePattern = () => (
   </svg>
 );
 
-const SectionBand = ({ label, badge }) => (
+const SectionBand = ({ label, badge }: SectionBandProps) => (
   <div
     style={{
       display: "flex",
@@ -89,7 +124,7 @@ const SectionBand = ({ label, badge }) => (
   </div>
 );
 
-const ScrunchieRow = ({ name, color, isLast, idx }) => (
+const ScrunchieRow = ({ name, color, isLast, idx }: ScrunchieRowProps) => (
   <div
     style={{
       display: "flex",
@@ -131,7 +166,7 @@ const ScrunchieRow = ({ name, color, isLast, idx }) => (
   </div>
 );
 
-const ItemRow = ({ name, detail, price, note, isLast, idx }) => (
+const ItemRow = ({ name, detail, price, note, isLast, idx }: ItemRowProps) => (
   <div
     style={{
       display: "flex",
@@ -176,7 +211,7 @@ const ItemRow = ({ name, detail, price, note, isLast, idx }) => (
   </div>
 );
 
-const ProductTable = ({ children }) => (
+const ProductTable = ({ children }: ProductTableProps) => (
   <div
     style={{
       border: `1px solid #DDD0B8`,
@@ -190,7 +225,7 @@ const ProductTable = ({ children }) => (
   </div>
 );
 
-const CategoryHeading = ({ icon, title }) => (
+const CategoryHeading = ({ icon, title }: CategoryHeadingProps) => (
   <div
     style={{
       display: "flex",
